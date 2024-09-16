@@ -10,6 +10,6 @@ RUN npm install -g haxroomie-cli
 
 COPY root/ /scripts/
 
-ENTRYPOINT ["/scripts/bootstrap.sh"]
+CMD ["/scripts/bootstrap.sh"]
 
 HEALTHCHECK --interval=5s --timeout=2s --retries=20 CMD /scripts/healthcheck.sh || exit 1
