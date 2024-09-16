@@ -8,8 +8,8 @@ RUN apt-get update && apt-get -y install curl && \
     apt install -y nodejs && apt-get install -y chromium-browser && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN npm install -g haxroomie-cli
 
-COPY root/ /root/
+COPY root/ /scripts/
 
-CMD ["/root/bootstrap.sh"]
+ENTRYPOINT ["/scripts/bootstrap.sh"]
 
-HEALTHCHECK --interval=5s --timeout=2s --retries=20 CMD /root/healthcheck.sh || exit 1
+HEALTHCHECK --interval=5s --timeout=2s --retries=20 CMD /scripts/healthcheck.sh || exit 1
